@@ -26,12 +26,12 @@ int main() {
 		cout << "Registering a new user: " + username << endl;
 		do {
 			if (pwd != pwdcheck) cout << "Passwords do not match!\n";
-			cout << "Enter your password: ";
+			cout << "Enter your password: "; 
 			cin >> pwd;
 			cout << "Repeat your password: ";
 			cin >> pwdcheck;
 		} while (pwd != pwdcheck);
-		is.open("./Users/" + username);
+		os.open("./Users/" + username);
 		salt = time(0);
 		os << salt << endl;
 		os << sha(pwd + to_string(salt));
